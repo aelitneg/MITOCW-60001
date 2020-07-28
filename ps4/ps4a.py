@@ -22,19 +22,33 @@ def get_permutations(sequence):
     Note: depending on your implementation, you may return the permutations in
     a different order than what is listed here.
     '''
+    if len(sequence) == 1:
+        return [ sequence[0]]
 
-    pass #delete this line and replace with your code here
+    permutations = []
+    for p in get_permutations(sequence[1:]):
+        for i in range(len(p) + 1):
+            permutations.append(p[i:] + sequence[0] + p[:i])
 
+    return permutations
 if __name__ == '__main__':
-#    #EXAMPLE
-#    example_input = 'abc'
-#    print('Input:', example_input)
-#    print('Expected Output:', ['abc', 'acb', 'bac', 'bca', 'cab', 'cba'])
-#    print('Actual Output:', get_permutations(example_input))
+
+    example_input = 'a'
+    print('Input:', example_input)
+    print('Expected Output:', ['a'])
+    print('Actual Output:', get_permutations(example_input))
+
+    print ('-----')
+
+    example_input = 'ab'
+    print('Input:', example_input)
+    print('Expected Output:', ['ab', 'ba'])
+    print('Actual Output:', get_permutations(example_input))
+
+    print ('-----') 
+
+    example_input = 'abc'
+    print('Input:', example_input)
+    print('Expected Output:', ['abc', 'acb', 'bac', 'bca', 'cab', 'cba'])
+    print('Actual Output:', get_permutations(example_input))
     
-#    # Put three example test cases here (for your sanity, limit your inputs
-#    to be three characters or fewer as you will have n! permutations for a 
-#    sequence of length n)
-
-    pass #delete this line and replace with your code here
-
