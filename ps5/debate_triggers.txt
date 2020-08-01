@@ -1,0 +1,33 @@
+// trigger file - if you've done problem 9 but no stories are popping up, you
+// should edit this file to contain triggers that will fire on the first
+// 2020 first presidential debate
+
+// title
+t1,TITLE,debate
+
+// description 1
+t2,DESCRIPTION,Trump
+
+// description 2
+t3,DESCRIPTION,Biden
+
+// combine descriptions
+t4,AND,t2,t3
+
+// combine descriptions and title
+t5,AND,t1,t4
+
+// time start
+t6,AFTER,29 Sep 2020 16:00:00
+
+// time end
+t7,BEFORE,29 Sep 2020 22:00:00
+
+// combine times
+t8,AND,t4,t5
+
+// combine all triggers
+t9,AND,t5,t8
+
+// the trigger list contains t1 and t4
+ADD,t9
